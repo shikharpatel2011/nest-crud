@@ -4,7 +4,11 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.enableCors({allowedHeaders: 'Authorization'});
+app.enableCors({
+    origin: '*', 
+    allowedHeaders: ['Content-Type', 'Authorization'], 
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+  });
   const config = new DocumentBuilder()
     .setTitle('Auth API')
     .setDescription('User Registration with CRUD Operations made using Nodejs with NESTJS, MongoDB with Prisma, JWT and SwaggerUI. Also Features sending OTP to email for verification using Nodemailer.') 

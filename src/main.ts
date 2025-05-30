@@ -28,8 +28,8 @@ async function bootstrap() {
       },
       'access-token'
     )
-    .addServer('http://localhost:3000', 'Local Development')
     .addServer('https://nest-crud-moi0.onrender.com', 'Production - Render')
+    .addServer('http://localhost:3000', 'Local Development')
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
